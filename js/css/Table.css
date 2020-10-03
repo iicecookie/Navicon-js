@@ -1,0 +1,23 @@
+.ui-jqgrid {
+    font-size: 16px;
+    position: absolute;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.ui-jqgrid>.ui-jqgrid-view {
+    font-family: inherit;
+    border-color: black;
+}
+
+.ui-jqgrid .ui-jqgrid-hdiv .ui-jqgrid-labels .ui-th-column {
+    color: black;
+}
+
+.ui-jqgrid tr.jqgrow td {
+    font-size: 16px
+}

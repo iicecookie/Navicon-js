@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body style="background-color: #f2f2f2;">
+    <div class="container">
+
+        <div class="row" style="padding-top: 20px;">
+            <aside class="col-3">
+            </aside> <!-- col.// -->
+
+            <aside class="col-6">
+                <article class="card">
+                    <div class="card-body p-5">
+                        <div class="tab-content">
+
+                            <h1 style="color: black; text-align: center;">Введите данные</h1>
+                            <p class="text-muted" style="text-align: center;"> Пожалуйста, заполните все поля</p>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Тип плательщика</label>
+                                </div>
+                                <select class="custom-select" id="TypeOfPerson">
+                                    <option value="0" selected>Выбирете тип</option>
+                                    <option value="1">Физическое лицо</option>
+                                    <option value="2">Юридическое лицо</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">НДС</label>
+                                </div>
+                                <input readonly type="text" id="NDS" class="form-control" placeholder=""
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <small class="help-block" id="PayerNameInvalide" hidden
+                                style="display: block; color: red;">Введите ваше имя</small>
+                            <div class="input-group mb-3">
+                                <input type="text" id="PayerName" class="form-control" placeholder="Имя плательщика"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+
+                            <!--hidden default-->
+                            <div class="input-group mb-3" hidden id="UrFaceForm">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Форма ЮЛ</label>
+                                </div>
+                                <select class="custom-select">
+                                    <option value="0" selected>Выбирете тип</option>
+                                    <option value="1">"ООО"</option>
+                                    <option value="2">"ОАО"</option>
+                                    <option value="1">"ЗАО"</option>
+                                    <option value="2">"ИП"</option>
+                                </select>
+                            </div>
+
+                            <small class="help-block" id="INNInvalide" hidden
+                                style="display: block; color: red;"></small>
+                            <div class="input-group mb-3">
+                                <input type="text" id="INN" class="form-control" placeholder="ИНН" required
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <!--hidden default-->
+                            <div class="input-group mb-3" hidden id="TaxSystem">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="TaxCheckbox"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+
+                                <input type="text" class="form-control" readonly
+                                    placeholder="Упрощенное налогооблажение" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">+7</span>
+                                </div>
+                                <input type="text" class="form-control" id="PhoneNumber" placeholder="Номер телефона"
+                                    aria-describedby="basic-addon1">
+                            </div>
+
+                            <small class="help-block" id="PaymentAmountInvalide" hidden
+                                style="display: block; color: red;">Сумма некорректна</small>
+
+                            <div class="input-group mb-3">
+                                <input type="text" id="PaymentAmount" class="form-control" placeholder="Сумма платежа"
+                                    aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Итог</label>
+                                </div>
+                                <input readonly type="text" id="Result" class="form-control" placeholder="0"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <button class="subscribe btn btn-primary btn-block" id="SubmitButton" type="button">
+                                Отправить </button>
+
+                        </div> <!-- tab-content .// -->
+                    </div> <!-- card-body.// -->
+                </article> <!-- card.// -->
+            </aside> <!-- col.// -->
+
+            <aside class="col-3"></aside>
+
+        </div> <!-- row.// -->
+
+    </div>
+    <!--container end.//-->
+    <script src="js/main.js"></script>
+    <script src="js/Validator.js"></script>
+</body>
+
+</html>
+
+<!--
+    Сверстать форму оплаты со следующими полями:
+
+    !- Тип плательщика: выпадающий список. Допустимые значения:
+    ! "Физическое лицо" "Юридическое лицо"
+    
+    ! - НДС - текстовое поле, заблокировано. Если тип плательщика выбран "Физ. лицо", то в поле устанавливается значение "13". Если "Юр. лицо" - "17".
+
+    !- Имя плательщика - текстовое поле. 
+    ! todo :Обязательно к заполнению
+
+    ! - форма ЮЛ - выпадающий список. 
+    ! todo Поле видно только в случае, если тип плательщика = "Юр. лицо". Допустимые значения:
+    ! "ООО"
+    ! "ОАО"
+    ! "ЗАО"
+    ! "ИП"
+
+    ! - ИНН - текстовое поле, обязательно к заполнению. Должна происходить валидация введенных данных: 
+    !   todo для типа плательщика = "Юр лицо" допустимое значение  - 10 цифр
+    !   todo для типа плательщика = "физ лицо" допустимое значение - 12 цифр
+
+    ! - упрощенное налогооблажение - чексбокс. Поле видно только в случае, если тип плательщика = "Юр. лицо".
+    !     Если установлена галочка, то поле "ИНН" очищается, делается необязательным и недоступным для ввода данных.
+
+    ! - Контактный телефон - текстовое поле. Позволяет ввести значения вида +7хххххххххх, где х - цифры от 0 до 9.
+
+    ! - Сумма платежа - текстовое поле, обязательно для заполнения. 
+    !   todo Валидация: позволяет ввести положительное число с плавающей точкой, отделитель десятичной части - "точка".
+    !   todo Если введено корректное число, то оно приводится к виду десятичного числа с 2-мя знаками после разделителя
+
+    !- Итог - текстовое поле, заблокировано. 
+    !    todo Если в поле "сумма платежа" введено корректное значение, то поле "итог" = "Сумма платежа" * (1 + "НДС"/100).
+    !    todo Если в поле "сумма платежа" введено Некорректное значение, то поле "итог" очищается.
+-->

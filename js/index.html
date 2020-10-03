@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Первое задание</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/Table.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/jquery.jqgrid.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-sm">
+        </div>
+
+        <div class="col-sm">
+            <div class="card">
+                <form class="box">
+                    <h2 style="color: black;">Введите данные</h1>
+                        <p class="text-muted"> Пожалуйста, заполните все поля</p>
+                        <input type="text" id="FirstNameInput" name="" placeholder="Имя">
+                        <input type="text" id="SecondNameInput" name="" placeholder="Фамилия">
+                        <input type="text" id="DatePicker" name="" placeholder="Дата рождения">
+                        <select class="select-css" id="CitySelector">
+                            <option value="" hidden selected>Выберите город</option>
+                            <option value="1">Екатеринбург</option>
+                            <option value="2">Москва</option>
+                            <option value="3">Новосибирск</option>
+                            <option value="4">Казань</option>
+                        </select>
+
+                        <button type="button" class="btn submit" id="SubmitButton"> Отправить
+                        </button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="col-sm">
+        </div>
+    </div>
+
+
+    <div class="row" style="padding-top: 600px;">
+
+        <div class="col-sm" style="padding: 0;">
+        </div>
+
+        <div class="col-sm">
+            <table id="grid"></table>
+        </div>
+
+        <div class="col-sm">
+            <table style="background-color: coral;" id="grid"></table>
+        </div>
+
+    </div>
+
+    <script src="js/Main.js"></script>
+    <script src="js/Validation.js"></script>
+    <script src="js/JQuery/JTable.js"></script>
+
+    <script>
+        $(function () {
+            $("#DatePicker").datepicker({
+                dateFormat: 'dd-mm-yy',
+                monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август',
+                    'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+                ],
+                inline: true,
+                showOtherMonths: true,
+                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+    TODO Задание 1:
+    
+    Сверсать форму для ввода персональных данных.
+    Форма должна содержать следующие поля:
+    1. Имя (текстовое)
+    2. Фамилия (текстовое)
+    3. Дата рождения (3 текстовых поля - ДД ММ ГГГГ)
+    4. Город (выпадающий список select)
+    И также кнопку отправки.
+    
+    Сверстать блок для сообщений об ошибке или об успешной обработке формы, который по умолчанию скрыт.
+    
+    Требование: идентичное отображение страницы в браузерах Chrome, Firefox, IE (10+).
+-->
